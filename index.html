@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A12 Jailbreak</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="public/logo.png">
+</head>
+<style>
+    body {
+        background-color: #2C2F33;
+        color: #fff;
+    }
+
+    a {
+        color: #99AAB5;
+    }
+
+    a:hover {
+        transition: 0.3s;
+        -o-transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+    <div class="container text-center">
+        <h1 class="display-3">A12 Jailbreak</h1>
+        <p class="lead">Welcome to the official A12 Jailbreak initialization tool. Please make sure you are on the
+            correct firmware before using this application. We are <strong>not responsible</strong> any errors. <a
+                href="">Source code</a></p>
+        <br>
+        <button class="btn btn-primary btn-lg" id="jailbreak">Initialize</button>
+        <br>
+        <br>
+        <div id="console" style="color: #fff;"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $('#jailbreak').one('click', function () {
+            $(this).prop("disabled", true);
+            var databases = [
+                "KERNEL-1", "KERNEL-A4", "KERNEL-A4-DD", "AP4_EXP_KERNEL", "DAEMON_F6", "D4X-MM3", "DARWIN-MXB", "DTT-A4A6", "ARM64_DTM", "EXT_FV"
+            ];
+            var choose_database = databases[Math.floor(Math.random() * databases.length)];
+            $("#console").append('<p><i class="fas fa-exclamation-circle"></i> Accessing Kernel database under hash #<strong>' + choose_database + '</strong>...</p>')
+            $(function () {
+                setTimeout(function () {
+                    $("#console").append('<p><i class="fas fa-check-circle"></i> Successfully accessed Kernel database. Rewriting async_def...</p>')
+                }, 3000);
+                setTimeout(function () {
+                    $("#console").append('<p><i class="fas fa-check-circle"></i> Defined variables successfully for amfid patch. Retrying async_await...</p>')
+                }, 5000);
+                setTimeout(function () {
+                    $("#console").append('<p><i class="fas fa-exclamation-circle"></i> Done! Redirecting <div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div></p>')
+                }, 8000);
+                setTimeout(function () {
+                    window.location.replace("public/success.html");
+                }, 10000)
+            })
+        });
+    </script>
+</body>
+
+</html>
